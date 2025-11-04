@@ -265,6 +265,55 @@ export default function Page(){
         </div>
       </section>
 
+      {/* RECURSOS OFICIALES – COSTA RICA */}
+      <section id="recursos" className="bg-white/60 border-y">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center">Recursos oficiales – Costa Rica</h2>
+          <p className="text-center text-slate-600 mt-2">
+            Guías y normativa de referencia para Planes de Salud Ocupacional y Emergencias.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-4 mt-8">
+            {/* ISO 45001: colócala en /public/docs/ISO45001.pdf si decides alojarla */}
+            <a href="/docs/ISO45001.pdf" target="_blank" rel="noopener" className="block">
+              <Card className="hover:shadow-lg transition">
+                <CardHeader><CardTitle>ISO 45001 – Sistema de Gestión de SST (PDF)</CardTitle></CardHeader>
+                <CardContent className="text-sm text-slate-600">
+                  Norma internacional para la gestión de la seguridad y salud en el trabajo.
+                </CardContent>
+              </Card>
+            </a>
+
+            <a href="https://www.cne.go.cr/reduccion_riesgo/biblioteca/planes/planes_de_emergencia.aspx" target="_blank" rel="noopener" className="block">
+              <Card className="hover:shadow-lg transition">
+                <CardHeader><CardTitle>CNE – Biblioteca de Planes de Emergencia</CardTitle></CardHeader>
+                <CardContent className="text-sm text-slate-600">
+                  Guías y ejemplos para elaborar planes de emergencia y reducción del riesgo.
+                </CardContent>
+              </Card>
+            </a>
+
+            <a href="https://www.mtss.go.cr/elministerio/despacho/decretos/Politica%20Nacional%20de%20Salud%20Ocupacional.pdf" target="_blank" rel="noopener" className="block">
+              <Card className="hover:shadow-lg transition">
+                <CardHeader><CardTitle>MTSS – Política Nacional de Salud Ocupacional (PDF)</CardTitle></CardHeader>
+                <CardContent className="text-sm text-slate-600">
+                  Marco orientador de la salud ocupacional en Costa Rica.
+                </CardContent>
+              </Card>
+            </a>
+
+            <a href="https://cso.go.cr/legislacion/decretos_normativa_reglamentaria/Decreto%20Ejecutivo%20No45166%20del%2013%20de%20junio%20de%202025.pdf" target="_blank" rel="noopener" className="block">
+              <Card className="hover:shadow-lg transition">
+                <CardHeader><CardTitle>Decreto Ejecutivo 45166-MTSS (2025)</CardTitle></CardHeader>
+                <CardContent className="text-sm text-slate-600">
+                  Regula comisiones y oficinas de Salud Ocupacional (deroga 39408-MTSS).
+                </CardContent>
+              </Card>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t">
         <div className="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-4">
