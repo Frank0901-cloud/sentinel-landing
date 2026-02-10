@@ -133,7 +133,12 @@ export default function DiagnosticoPage() {
                     </select>
 
                     <div className="flex justify-between">
-                      <Button variant="outline" className="rounded-2xl" onClick={prevStep}>Atrás</Button>
+                      <Button
+  className="rounded-2xl border bg-white text-slate-900 hover:bg-slate-50"
+  onClick={prevStep}
+>
+  Atrás
+</Button>
                       <Button className="rounded-2xl" onClick={nextStep}>Continuar</Button>
                     </div>
                   </div>
