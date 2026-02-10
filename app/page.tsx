@@ -73,8 +73,8 @@ export default function Page(){
             <a href="#proceso" className="hover:opacity-80">Proceso</a>
             <a href="#precios" className="hover:opacity-80">Planes</a>
             <a href="#recursos" className="hover:opacity-80">Recursos</a>
-            <a href="/diagnostico">
-  <Button className="rounded-2xl">Ir al diagnóstico</Button>
+           <a href="/diagnostico">
+  <Button className="rounded-2xl">Diagnóstico por pasos</Button>
 </a>
             <a href="#faq" className="hover:opacity-80">FAQ</a>
             <a href="#contacto" className="hover:opacity-80">Contacto</a>
