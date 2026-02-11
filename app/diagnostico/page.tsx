@@ -170,11 +170,13 @@ export default function DiagnosticoPage() {
 
                     <div className="flex justify-between">
                       <Button
-  className="rounded-2xl border bg-white text-slate-900 hover:bg-slate-50"
+  type="button"
+  className="rounded-2xl border border-slate-300 bg-white text-slate-800 hover:bg-slate-100"
   onClick={prevStep}
 >
-  Atrás
+  ← Atrás
 </Button>
+
                       <Button className="rounded-2xl" onClick={nextStep}>Continuar</Button>
                     </div>
                   </div>
