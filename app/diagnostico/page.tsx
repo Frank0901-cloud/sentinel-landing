@@ -48,29 +48,65 @@ export default function DiagnosticoPage() {
   const prevStep = () => setStep((p) => (p === 3 ? 2 : 1));
 
   const onSubmitWizard = async () => {
-    if (!validateStep(1) || !validateStep(2)) return alert("Faltan campos requeridos.");
-    setLoading(true);
-    try {
-      const data = new FormData();
-      Object.entries(form).forEach(([k, v]) => data.append(k, Array.isArray(v) ? v.join(", ") : String(v)));
+  if (!validateStep(1) || !validateStep(2)) return alert("Faltan campos requeridos.");
+  setLoading(true);
 
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
+  try {
+    const data = new FormData();
 
-      if (res.ok) setSubmitted(true);
-      else alert("No se pudo enviar. Intenta nuevamente.");
-    } catch {
-      alert("Error de conexión.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    // ✅ Asunto en español
+    data.append("_subject", "Nuevo diagnóstico SST — Sentinel (Costa Rica)");
+    data.append("Tipo de solicitud", "Diagnóstico por pasos");
+    data.append("Idioma", "Español");
+
+    // ✅ Resumen legible en español
+    data.append(
+      "Resumen (ES)",
+      [
+        `Nombre: ${form.full_name}`,
+        `Empresa: ${form.company_name}`,
+        `Correo: ${form.email}`,
+        `WhatsApp: ${form.phone_whatsapp}`,
+        `Sector: ${form.sector}`,
+        `Colaboradores: ${form.employees}`,
+        `Provincia/Zona: ${form.province}`,
+        `Varias sedes: ${form.multi_site}`,
+        `Plan de Salud Ocupacional: ${form.has_sst_plan}`,
+        `Inspecciones MTSS: ${form.mtss_inspection}`,
+        `Necesidades: ${form.needs.length ? form.needs.join(", ") : "No indicó"}`,
+        `Mensaje: ${form.message || "—"}`,
+      ].join("\n")
+    );
+
+    // (Opcional) manda también los campos técnicos
+    Object.entries(form).forEach(([k, v]) =>
+      data.append(k, Array.isArray(v) ? v.join(", ") : String(v))
+    );
+
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (res.ok) setSubmitted(true);
+    else alert("No se pudo enviar. Intenta nuevamente.");
+  } catch {
+    alert("Error de conexión.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <a
+  href="/"
+  className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 hover:opacity-90"
+>
+  ← Volver a Sentinel
+</a>
       <h1 className="text-3xl font-semibold">Diagnóstico SST gratuito</h1>
       <p className="mt-2 text-muted-foreground">
         Completa este diagnóstico por pasos. Te respondemos con un plan de acción y recomendación de alcance.
